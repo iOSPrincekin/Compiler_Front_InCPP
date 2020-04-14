@@ -15,6 +15,9 @@ public:
     string lexeme;
     Word(string s, int tag);
     virtual string toString ();
+    operator bool() const{
+        return true;
+    }
 };
 
 static const Word Word_and =  Word( "&&", Tag::AND ) ,  Word_or =  Word( "||", Tag::OR ),

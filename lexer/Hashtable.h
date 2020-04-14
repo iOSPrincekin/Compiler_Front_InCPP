@@ -7,17 +7,21 @@
 
 #include <string>
 #include <map>
+#include "/usr/local/Cellar/boost/1.67.0_1/include/boost/variant.hpp"
 #include "Token.h"
+#include "Word.h"
+
 using namespace std;
 class Hashtable {
 private:
     int table_size;
-    map<string,void *> hashtable;
+    using Key = boost::variant<Word,Token, std::string>;
+    map<Key,void *> hashtable;
 public:
    Hashtable();
-    void put(string key,void * value);
+    void put(Key key,void * value);
 
-    void* get(string key);
+    void* get(Key key);
 };
 
 

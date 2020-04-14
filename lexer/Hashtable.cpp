@@ -5,10 +5,10 @@
 #include "Hashtable.h"
 Hashtable::Hashtable() {
 }
-void Hashtable::put(string key, void* value) {
+void Hashtable::put(Key key, void* value) {
    hashtable[key] = value;
 }
 
-void* Hashtable::get(string key) {
+void* Hashtable::get(Key key) {
     return  hashtable[key];
 }

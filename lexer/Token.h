@@ -12,6 +12,9 @@ public:
     Token(int t);
     int tag;
     virtual string toString();
+    operator bool() const{
+        return true;
+    }
 };
 
 

@@ -8,5 +8,5 @@ Env::Env(Env* n) {
 }
 
 void Env::put(Token w, Id i) {
-    //table.put(&w,&i);
+    table.put(w,&i);
 }
