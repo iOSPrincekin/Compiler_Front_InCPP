@@ -15,8 +15,8 @@ public:
     string lexeme;
     Word(string s, int tag);
     virtual string toString ();
-    operator bool() const{
-        return true;
+    friend bool operator<(const Word& l, const Word& r){
+        return l.lexeme < r.lexeme;
     }
 };
 
