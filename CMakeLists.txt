@@ -18,7 +18,7 @@ if(Boost_FOUND)
 endif()
 
 
-add_executable(Front main.cpp lexer/Tag.cpp lexer/Tag.h lexer/Token.cpp lexer/Token.h lexer/Word.cpp lexer/Word.h lexer/Real.cpp lexer/Real.h lexer/Num.cpp lexer/Num.h lexer/Lexer.cpp lexer/Lexer.h lexer/Hashtable.cpp lexer/Hashtable.h symbols/Type.cpp symbols/Type.h parser/Parser.cpp parser/Parser.h symbols/Env.cpp symbols/Env.h Inter/Access.cpp Inter/Access.h Inter/Node.cpp Inter/Node.h Inter/Expr.cpp Inter/Expr.h Inter/Id.cpp Inter/Id.h Inter/If.cpp Inter/If.h Inter/Stmt.cpp Inter/Stmt.h Inter/Logical.cpp Inter/Logical.h)
+add_executable(Front main.cpp lexer/Tag.cpp lexer/Tag.h lexer/Token.cpp lexer/Token.h lexer/Word.cpp lexer/Word.h lexer/Real.cpp lexer/Real.h lexer/Num.cpp lexer/Num.h lexer/Lexer.cpp lexer/Lexer.h lexer/Hashtable.cpp lexer/Hashtable.h symbols/Type.cpp symbols/Type.h parser/Parser.cpp parser/Parser.h symbols/Env.cpp symbols/Env.h Inter/Access.cpp Inter/Access.h Inter/Node.cpp Inter/Node.h Inter/Expr.cpp Inter/Expr.h Inter/Id.cpp Inter/Id.h Inter/If.cpp Inter/If.h Inter/Stmt.cpp Inter/Stmt.h Inter/Logical.cpp Inter/Logical.h Inter/Op.cpp Inter/Op.h Inter/Temp.cpp Inter/Temp.h Inter/And.cpp Inter/And.h Inter/Arith.cpp Inter/Arith.h Inter/Break.cpp Inter/Break.h Inter/Constant.cpp Inter/Constant.h Inter/Do.cpp Inter/Do.h Inter/Else.cpp Inter/Else.h Inter/Not.cpp Inter/Not.h Inter/Or.cpp Inter/Or.h Inter/Rel.cpp Inter/Rel.h symbols/Array.cpp symbols/Array.h Inter/Seq.cpp Inter/Seq.h Inter/SetElem.cpp Inter/SetElem.h Inter/Unary.cpp Inter/Unary.h Inter/While.cpp Inter/While.h Inter/Set.cpp Inter/Set.h)
 
 if(Boost_FOUND)
 

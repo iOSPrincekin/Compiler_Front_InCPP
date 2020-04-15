@@ -10,13 +10,13 @@
 
 class Logical: public Expr {
 public:
-    Expr expr1, expr2;
+    Expr *expr1, *expr2;
 
-    Logical(Token tok,Expr x1,Expr x2);
+    Logical(Token* tok,Expr* x1,Expr* x2);
 
     Type check(Type p1,Type p2);
 
-    Expr gen();
+    Expr* gen();
 
     string toString();
 };

@@ -15,9 +15,8 @@ protected:
     Env *prev;
 public:
     Env(Env* n);
-
-    void put(Token w,Id i);
-
+    void put(Token w, Id* i);
+    Id* get(Token w);
 };
 
 

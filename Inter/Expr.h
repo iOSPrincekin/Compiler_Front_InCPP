@@ -13,15 +13,16 @@
 class Expr: public Node {
 public:
     Token *op;
-    Type *type;
+    Type type;
 
-    Expr(Token *tok, Type *p);
+    Expr(Token *tok, Type p);
 
-    Expr gen();
+    Expr* gen();
 
-    Expr reduce();
+    Expr* reduce();
 
-    void jumping(string test, int t, int f);
+    virtual void jumping( int t, int f);
+    void emitjumps(string test, int t, int f);
     string toString();
 
 

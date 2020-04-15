@@ -6,7 +6,14 @@
 #define FRONT_IF_H
 
 
-class If  {
+#include "Expr.h"
+#include "Stmt.h"
+
+class If : public Stmt {
+public:
+    Expr *expr; Stmt *stmt;
+    If(Expr* x, Stmt* s);
+    void gen(int b, int a);
 
 };
 
