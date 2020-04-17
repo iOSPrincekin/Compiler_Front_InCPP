@@ -3,6 +3,7 @@
 //
 
 #include "SetElem.h"
+#include "../symbols/Array.h"
 
 SetElem::SetElem(Access *x, Expr *y) {
     array = x->array;
@@ -12,6 +13,12 @@ SetElem::SetElem(Access *x, Expr *y) {
 }
 
 Type SetElem::check(Type p1, Type p2) {
+    if(Array * t1 = dynamic_cast<Array*>(&p1))
+    {
+        if(Array * t2 = dynamic_cast<Array*>(&p2)){
+            return Type_NULL;
+        }
+    }
     if ( p1 == p2 ) return p2;
     else if ( Type::numeric(p1) && Type::numeric(p2) ) return p2;
     else return Type_NULL;

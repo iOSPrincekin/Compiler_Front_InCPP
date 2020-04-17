@@ -4,6 +4,7 @@
 
 #include "Hashtable.h"
 Hashtable::Hashtable() {
+    hashtable = map<Key,void *>();
 }
 void Hashtable::put(Key key, void* value) {
    hashtable[key] = value;

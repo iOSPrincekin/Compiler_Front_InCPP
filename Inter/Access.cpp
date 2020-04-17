@@ -5,7 +5,7 @@
 #include "Access.h"
 
 Access::Access(Id *a, Expr *i, Type p):Op(new Word("[]",Tag::INDEX),p) {
-  array = a;
+    array = a;
     index = i;
 }
 

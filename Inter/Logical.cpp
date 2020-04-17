@@ -27,3 +27,7 @@ Expr* Logical::gen() {
     emitlabel(a);
     return temp;
 }
+
+string Logical::toString() {
+    return expr1->toString()+" "+op->toString()+" "+expr2->toString();
+}

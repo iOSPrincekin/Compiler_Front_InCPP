@@ -11,6 +11,10 @@
 
 
 Lexer::Lexer(){
+    setup();
+}
+
+void Lexer::setup() {
     words=Hashtable();
 
     reserve(  Word("if",    Tag::IF)    );
@@ -23,11 +27,10 @@ Lexer::Lexer(){
 
     reserve( (Word)Type_Int  );  reserve( (Word)Type_Char  );
     reserve( (Word)Type_Bool );  reserve( (Word)Type_Float );
-
 }
 
 Lexer::Lexer(string file_path) {
-    Lexer();
+    setup();
     file_in = fstream(file_path.c_str());
 
     if(file_in.fail())

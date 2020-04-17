@@ -1,7 +1,10 @@
 #include <iostream>
 #include "lexer/Lexer.h"
+#include "parser/Parser.h"
+
 #define Lexer_Debug 0
-#define HashTable_Debug 1
+#define HashTable_Debug 0
+#define Parser_Debug 1
 int main(int argc,char** argv) {
     std::cout << "Hello, World!" << std::endl;
 
@@ -35,6 +38,12 @@ int main(int argc,char** argv) {
     cout << newVal1->toString() << endl;
     cout << newVal2->toString() << endl;
     cout << newVal3->toString() << endl;
+#endif
+
+#if Parser_Debug
+    Lexer l = Lexer(argv[1]);
+    Parser *parse = new Parser(&l);
+    parse->program();
 #endif
 
     return 0;

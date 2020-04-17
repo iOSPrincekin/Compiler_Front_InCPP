@@ -86,46 +86,82 @@ Stmt* Parser::stmt() {
 
         switch( look->tag ) {
 
-            case ';':
+            case ';': {
                 move();
                 return Stmt_Null;
 
-            case Tag::IF:
-                match(Tag::IF); match('('); x = _bool(); match(')');
+                break;
+
+            }
+            case Tag::IF: {
+                match(Tag::IF);
+                match('(');
+                x = _bool();
+                match(')');
                 s1 = stmt();
-                if( look->tag != Tag::ELSE ) return new If(x, s1);
+                if (look->tag != Tag::ELSE) return new If(x, s1);
                 match(Tag::ELSE);
                 s2 = stmt();
                 return new Else(x, s1, s2);
 
-            case Tag::WHILE:
-                While* whilenode = new While();
-                savedStmt = Stmt_Enclosing; Stmt_Enclosing = whilenode;
-                match(Tag::WHILE); match('('); x = _bool(); match(')');
+                break;
+
+            }
+
+            case Tag::WHILE: {
+                While *whilenode = new While();
+                savedStmt = Stmt_Enclosing;
+                Stmt_Enclosing = whilenode;
+                match(Tag::WHILE);
+                match('(');
+                x = _bool();
+                match(')');
                 s1 = stmt();
                 whilenode->init(x, s1);
                 Stmt_Enclosing = savedStmt;  // reset Stmt.Enclosing
                 return whilenode;
 
-            case Tag::DO:
+                break;
+            }
+
+
+            case Tag::DO: {
                 Do *donode = new Do();
-                savedStmt = Stmt_Enclosing; Stmt_Enclosing = donode;
+                savedStmt = Stmt_Enclosing;
+                Stmt_Enclosing = donode;
                 match(Tag::DO);
                 s1 = stmt();
-                match(Tag::WHILE); match('('); x = _bool(); match(')'); match(';');
+                match(Tag::WHILE);
+                match('(');
+                x = _bool();
+                match(')');
+                match(';');
                 donode->init(s1, x);
                 Stmt_Enclosing = savedStmt;  // reset Stmt.Enclosing
                 return donode;
 
-            case Tag::BREAK:
-                match(Tag::BREAK); match(';');
+                break;
+
+            }
+
+            case Tag::BREAK: {
+                match(Tag::BREAK);
+                match(';');
                 return new Break();
 
-            case '{':
+
+                break;
+            }
+
+            case '{': {
                 return block();
 
-            default:
+                break;
+            }
+            default: {
                 return assign();
+                break;
+            }
         }
 
 
@@ -176,8 +212,11 @@ Expr* Parser::equality() {
 Expr* Parser::rel() {
     Expr *x = expr();
     switch( look->tag ) {
-        case '<': case Tag::LE: case Tag::GE: case '>':
-            Token *tok = look;  move();  return new Rel(tok, x, expr());
+        case '<': case Tag::LE: case Tag::GE: case '>': {
+            Token *tok = look;
+            move();
+            return new Rel(tok, x, expr());
+        }
         default:
             return x;
     }
@@ -202,7 +241,7 @@ Expr* Parser::term() {
 
 Expr* Parser::unary() {
     if( look->tag == '-' ) {
-        move();  return new Unary(&Word_minus, unary());
+        move();  return new Unary((Token *)(&Word_minus), unary());
     }
     else if( look->tag == '!' ) {
         Token *tok = look;  move();  return new Not(tok, unary());
@@ -217,6 +256,7 @@ Expr* Parser::factor() {
         case '(':
             move(); x = _bool(); match(')');
             return x;
+
         case Tag::NUM:
             x = new Constant(look, Type_Int);    move(); return x;
         case Tag::REAL:

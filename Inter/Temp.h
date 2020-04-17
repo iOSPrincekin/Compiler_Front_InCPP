@@ -10,7 +10,7 @@
 
 class Temp: public Expr {
 public:
-    static int count;
+
     int number = 0;
 
     Temp(Type p);
@@ -20,6 +20,7 @@ public:
 
 
 };
+static int Temp_count = 0;
 
 
 #endif //FRONT_TEMP_H
