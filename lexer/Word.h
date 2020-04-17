@@ -20,11 +20,11 @@ public:
     }
 };
 
-static const Word Word_and =  Word( "&&", Tag::AND ) ,  Word_or =  Word( "||", Tag::OR ),
-        Word_eq  =  Word( "==", Tag::EQ  ),  Word_ne =  Word( "!=", Tag::NE ),
-        Word_le  =  Word( "<=", Tag::LE  ),  Word_ge =  Word( ">=", Tag::GE ),
-        Word_minus  =  Word( "minus", Tag::MINUS ),
-        Word_True   = Word( "true",  Tag::TRUE  ),
-        Word_False  =  Word( "false", Tag::FALSE ),
-        Word_temp  =  Word( "t",     Tag::TEMP  );
+static const Word *Word_and = new Word( "&&", Tag::AND ) ,  *Word_or = new Word( "||", Tag::OR ),
+        *Word_eq  = new Word( "==", Tag::EQ  ),  *Word_ne = new Word( "!=", Tag::NE ),
+        *Word_le  = new Word( "<=", Tag::LE  ), * Word_ge =  new Word( ">=", Tag::GE ),
+        *Word_minus  = new Word( "minus", Tag::MINUS ),
+        *Word_True   = new Word( "true",  Tag::TRUE  ),
+        *Word_False  =  new Word( "false", Tag::FALSE ),
+        *Word_temp  =  new Word( "t",     Tag::TEMP  );
 #endif //FRONT_WORD_H

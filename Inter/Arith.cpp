@@ -3,7 +3,7 @@
 //
 
 #include "Arith.h"
-Arith::Arith(Token* tok, Expr *x1, Expr *x2):Op(tok, Type_NULL) {
+Arith::Arith(Token* tok, Expr *x1, Expr *x2):Op(tok, nullptr) {
     expr1 = x1;
     expr2 = x2;
     type = Type::max(expr1->type,expr2->type);

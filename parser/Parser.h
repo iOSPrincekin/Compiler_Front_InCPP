@@ -26,8 +26,8 @@ public:
     void program();
     Stmt* block();
     void decls();
-    Type type();
-    Type dims(Type p);
+    Type* type();
+    Type* dims(Type* p);
     Stmt* stmts();
     Stmt* stmt();
     Stmt* assign();
@@ -39,7 +39,7 @@ public:
     Expr* term();
     Expr* unary();
     Expr* factor();
-    Access* offset(Id a);
+    Access* offset(Id* a);
 };
 
 

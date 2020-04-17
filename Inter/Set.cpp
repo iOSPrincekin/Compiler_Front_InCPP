@@ -9,10 +9,10 @@ Set::Set(Id *i, Expr *x) {
     if ( check(id->type, expr->type) == Type_NULL ) error("type error");
 }
 
-Type Set::check(Type p1, Type p2) {
+Type* Set::check(Type* p1, Type* p2) {
     if ( Type::numeric(p1) && Type::numeric(p2) ) return p2;
     else if ( p1 == Type_Bool && p2 == Type_Bool ) return p2;
-    else return Type_NULL;
+    else return nullptr;
 }
 
 void Set::gen(int b, int a) {

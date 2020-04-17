@@ -13,7 +13,7 @@ public:
 
     int number = 0;
 
-    Temp(Type p);
+    Temp(Type* p);
 
     string toString();
 

@@ -20,8 +20,8 @@ public:
 
 private:
     fstream file_in;
-    Hashtable words;
-    void reserve(Word w);
+    Hashtable words=Hashtable();
+    void reserve(Word* w);
     void setup();
     void readch();
     bool readch(char c);

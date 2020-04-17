@@ -15,18 +15,19 @@ Lexer::Lexer(){
 }
 
 void Lexer::setup() {
-    words=Hashtable();
 
-    reserve(  Word("if",    Tag::IF)    );
-    reserve(  Word("else",  Tag::ELSE)  );
-    reserve(  Word("while", Tag::WHILE) );
-    reserve(  Word("do",    Tag::DO)    );
-    reserve(  Word("break", Tag::BREAK) );
+    reserve(  new Word("if",    Tag::IF)    );
+    reserve(  new Word("else",  Tag::ELSE)  );
+    reserve(  new Word("while", Tag::WHILE) );
+    reserve(  new Word("do",    Tag::DO)    );
+    reserve(  new Word("break", Tag::BREAK) );
 
-    reserve( Word_True );  reserve( Word_False );
+    reserve( (Word*)Word_True );  reserve( (Word*)Word_False );
 
-    reserve( (Word)Type_Int  );  reserve( (Word)Type_Char  );
-    reserve( (Word)Type_Bool );  reserve( (Word)Type_Float );
+    reserve( (Word*)Type_Int  );  reserve( (Word*)Type_Char  );
+    reserve( (Word*)Type_Bool );  reserve( (Word*)Type_Float );
+
+
 }
 
 Lexer::Lexer(string file_path) {
@@ -47,8 +48,8 @@ Lexer::Lexer(string file_path) {
     }
 
 }
-void Lexer::reserve(Word w) {
-    words.put(w.lexeme,&w);
+void Lexer::reserve(Word* w) {
+    words.put(w->lexeme,w);
 }
 
 
@@ -58,9 +59,9 @@ void Lexer::readch() {
     file_in >> noskipws >> peek;
    // peek = file_in.peek();
     if (true == file_in.eof()) {
-      //  cout << "==--==" << endl;
+   //     cout << "==--==" << endl;
     }else {
-      //  cout << peek << endl;
+     //   cout << peek << endl;
     }
 }
 
@@ -72,7 +73,8 @@ bool Lexer::readch(char c) {
 }
 Token* Lexer::scan() {
     for (; ;readch()) {
-        if (peek == ' ' || peek == '\t') continue;
+        if(true == file_in.eof()) break;
+        else if (peek == ' ' || peek == '\t') continue;
         else if (peek == '\n') line = line + 1;
         else break;
     }

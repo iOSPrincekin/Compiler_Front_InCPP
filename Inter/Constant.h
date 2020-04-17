@@ -10,7 +10,7 @@
 
 class Constant: public Expr {
 public:
-    Constant(Token* tok, Type p);
+    Constant(Token* tok, Type* p);
     Constant(int i);
 
     void jumping(int t, int f);
@@ -18,7 +18,7 @@ public:
 };
 
  static  Constant
-        *Constant_True  = new Constant((Token*)&Word_True,  Type_Bool),
-         *Constant_False = new Constant((Token*)&Word_False, Type_Bool);
+        *Constant_True  = new Constant((Token*)&Word_True,  (Type*)Type_Bool),
+         *Constant_False = new Constant((Token*)&Word_False, (Type*)Type_Bool);
 
 #endif //FRONT_CONSTANT_H

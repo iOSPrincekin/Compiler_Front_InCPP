@@ -5,6 +5,10 @@
 #define Lexer_Debug 0
 #define HashTable_Debug 0
 #define Parser_Debug 1
+Hashtable t = Hashtable();
+void reserve(Word w) {
+    t.put(w.lexeme,&w);
+}
 int main(int argc,char** argv) {
     std::cout << "Hello, World!" << std::endl;
 
@@ -19,7 +23,7 @@ int main(int argc,char** argv) {
 #endif
 
 #if HashTable_Debug
-   Hashtable t = Hashtable();
+
     Word wKey1 = Word("first_key",Tag::AND);
     Token *val1 = new Token('j');
     t.put(wKey1,val1);
@@ -38,6 +42,12 @@ int main(int argc,char** argv) {
     cout << newVal1->toString() << endl;
     cout << newVal2->toString() << endl;
     cout << newVal3->toString() << endl;
+
+
+    Word w1 = Type_Int;
+    reserve(w1);
+    Word* w2 = static_cast<Word *>(t.get(w1.lexeme));
+    cout << w2->toString() << endl;
 #endif
 
 #if Parser_Debug

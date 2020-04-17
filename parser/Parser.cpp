@@ -54,25 +54,25 @@ Stmt* Parser::block() {
 
 void Parser::decls() {
     while( look->tag == Tag::BASIC ) {   // D -> type ID ;
-        Type p = type(); Token *tok = look; match(Tag::ID); match(';');
+        Type *p = type(); Token *tok = look; match(Tag::ID); match(';');
         Id *id =  new Id(static_cast<Word *>(tok), p, used);
         top->put( *tok, id );
-        used = used + p.width;
+        used = used + p->width;
     }
 }
 
-Type Parser::type() {
+Type* Parser::type() {
     Type* p =  static_cast<Type *>(look);            // expect look.tag == Tag.BASIC
     match(Tag::BASIC);
-    if( look->tag != '[' ) return *p; // T -> basic
-    else return dims(*p);            // return array type
+    if( look->tag != '[' ) return p; // T -> basic
+    else return dims(p);            // return array type
 }
 
-Type Parser::dims(Type p) {
+Type* Parser::dims(Type* p) {
     match('[');  Token* tok = look;  match(Tag::NUM);  match(']');
     if( look->tag == '[' )
         p = dims(p);
-    return  Array((static_cast<Num *>(tok))->value, p);
+    return new Array((static_cast<Num *>(tok))->value, p);
 }
 
 Stmt* Parser::stmts() {
@@ -177,7 +177,7 @@ Stmt* Parser::assign() {
         move();  stmt = new Set(id, _bool());
     }
     else {                        // S -> L = E ;
-        Access* x = offset(*id);
+        Access* x = offset(id);
         match('=');  stmt = new SetElem(x, _bool());
     }
     match(';');
@@ -241,7 +241,7 @@ Expr* Parser::term() {
 
 Expr* Parser::unary() {
     if( look->tag == '-' ) {
-        move();  return new Unary((Token *)(&Word_minus), unary());
+        move();  return new Unary((Token *)Word_minus, unary());
     }
     else if( look->tag == '!' ) {
         Token *tok = look;  move();  return new Not(tok, unary());
@@ -258,9 +258,9 @@ Expr* Parser::factor() {
             return x;
 
         case Tag::NUM:
-            x = new Constant(look, Type_Int);    move(); return x;
+            x = new Constant(look, (Type*)Type_Int);    move(); return x;
         case Tag::REAL:
-            x = new Constant(look, Type_Float);  move(); return x;
+            x = new Constant(look, (Type*)Type_Float);  move(); return x;
         case Tag::TRUE:
             x = Constant_True;                   move(); return x;
         case Tag::FALSE:
@@ -274,28 +274,28 @@ Expr* Parser::factor() {
             if( id == nullptr ) error(look->toString() + " undeclared");
             move();
             if( look->tag != '[' ) return id;
-            else return offset(*id);
+            else return offset(id);
     }
 
 }
 
-Access* Parser::offset(Id a) {  // I -> [E] | [E] I
+Access* Parser::offset(Id* a) {  // I -> [E] | [E] I
     Expr *i; Expr *w; Expr *t1, *t2; Expr *loc;  // inherit id
 
-    Type type = a.type;
+    Type *type = a->type;
     match('['); i = _bool(); match(']');     // first index, I -> [ E ]
-    type = (dynamic_cast<Array*>(&type))->of;
-    w = new Constant(type.width);
+    type = (dynamic_cast<Array*>(type))->of;
+    w = new Constant(type->width);
     t1 = new Arith(new Token('*'), i, w);
     loc = t1;
     while( look->tag == '[' ) {      // multi-dimensional I -> [ E ] I
         match('['); i = _bool(); match(']');
-        type = (dynamic_cast<Array*>(&type))->of;
-        w = new Constant(type.width);
+        type = (dynamic_cast<Array*>(type))->of;
+        w = new Constant(type->width);
         t1 = new Arith(new Token('*'), i, w);
         t2 = new Arith(new Token('+'), loc, t1);
         loc = t2;
     }
 
-    return new Access(&a, loc, type);
+    return new Access(a, loc, type);
 }

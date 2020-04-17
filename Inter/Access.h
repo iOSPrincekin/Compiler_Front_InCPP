@@ -13,7 +13,7 @@ class Access: public Op {
 public:
     Id *array;
     Expr *index;
-    Access(Id *a, Expr *i, Type p);
+    Access(Id *a, Expr *i, Type* p);
     Expr gen();
     void jumping(int t,int f);
     string toString();

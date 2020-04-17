@@ -5,11 +5,11 @@
 #include "Constant.h"
 #include "../lexer/Num.h"
 
-Constant::Constant(Token *tok, Type p):Expr(tok,p) {
+Constant::Constant(Token *tok, Type* p):Expr(tok,p) {
 
 }
 
-Constant::Constant(int i) :Expr(new Num(i),Type_Int){
+Constant::Constant(int i) :Expr(new Num(i),(Type*)Type_Int){
 
 }
 

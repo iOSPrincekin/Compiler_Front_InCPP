@@ -4,7 +4,7 @@
 
 #include "Num.h"
 #include "Tag.h"
-Num::Num(int v):Token(Tag::AND) {
+Num::Num(int v):Token(Tag::NUM) {
    value = v;
 }
 string Num::toString() {

@@ -11,7 +11,7 @@
 class Op: public Expr {
 public:
 
-    Op(Token *tok, Type p);
+    Op(Token *tok, Type* p);
     Expr* reduce() ;
 
 };

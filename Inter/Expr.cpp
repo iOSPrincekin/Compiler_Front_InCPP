@@ -3,7 +3,7 @@
 //
 
 #include "Expr.h"
-Expr::Expr(Token *tok, Type p):type(p){
+Expr::Expr(Token *tok, Type* p):type(p){
     op = tok;
 }
 Expr* Expr::gen() { return this; }

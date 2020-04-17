@@ -5,16 +5,16 @@
 #include "Logical.h"
 #include "Temp.h"
 
-Logical::Logical(Token *tok, Expr *x1, Expr *x2):Expr(tok, Type_NULL) {
+Logical::Logical(Token *tok, Expr *x1, Expr *x2):Expr(tok, nullptr) {
     expr1 = x1;
     expr2 = x2;
     type = check(expr1->type,expr2->type);
     if (type == Type_NULL) error("type error");
 }
 
-Type Logical::check(Type p1, Type p2) {
-    if (p1 == Type_Bool && p2  == Type_Bool) return Type_Bool;
-    else return Type_NULL;
+Type* Logical::check(Type* p1, Type* p2) {
+    if (p1 == Type_Bool && p2  == Type_Bool) return (Type*)Type_Bool;
+    else return nullptr;
 }
 
 Expr* Logical::gen() {

@@ -13,9 +13,9 @@
 class Expr: public Node {
 public:
     Token *op;
-    Type type;
+    Type *type;
 
-    Expr(Token *tok, Type p);
+    Expr(Token *tok, Type* p);
 
     Expr* gen();
 

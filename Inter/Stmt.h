@@ -12,7 +12,7 @@ class Stmt: public Node {
 public:
     Stmt();
 
-    void gen(int b, int a);  // called with labels begin and after
+    virtual void gen(int b, int a);  // called with labels begin and after
     int after = 0;           // saves label after
 
 

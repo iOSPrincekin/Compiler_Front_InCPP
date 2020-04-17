@@ -5,7 +5,7 @@
 #include "Op.h"
 #include "Temp.h"
 
-Op::Op(Token *tok, Type p):Expr(tok,p) {
+Op::Op(Token *tok, Type *p):Expr(tok,p) {
 
 }
 
