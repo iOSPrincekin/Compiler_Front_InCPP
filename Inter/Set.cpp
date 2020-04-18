@@ -16,5 +16,5 @@ Type* Set::check(Type* p1, Type* p2) {
 }
 
 void Set::gen(int b, int a) {
-    emit( id->toString() + " = " + expr->gen()->toString() );
+    emit( id->toString() + " = " + expr->gen()->toString());
 }

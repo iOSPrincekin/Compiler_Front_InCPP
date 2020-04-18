@@ -23,7 +23,7 @@ public:
 
     virtual void jumping( int t, int f);
     void emitjumps(string test, int t, int f);
-    string toString();
+    virtual string toString();
 
 
 

@@ -10,8 +10,8 @@ Seq::Seq(Stmt *s1, Stmt *s2) {
 }
 
 void Seq::gen(int b, int a) {
-    if ( stmt1 == Stmt_Null ) stmt2->gen(b, a);
-    else if ( stmt2 == Stmt_Null ) stmt1->gen(b, a);
+    if ( stmt1 == Stmt::Null ) stmt2->gen(b, a);
+    else if ( stmt2 == Stmt::Null ) stmt1->gen(b, a);
     else {
         int label = newlabel();
         stmt1->gen(b,label);

@@ -13,7 +13,7 @@ public:
     Type *of;      // array *of* type
     int size = 1;             // number of elements
     Array(int sz,Type* p);
-    string toString();
+    virtual string toString();
 };
 
 

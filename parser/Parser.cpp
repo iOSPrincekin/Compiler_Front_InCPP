@@ -21,7 +21,9 @@
 #include "../Inter/Break.h"
 #include "../Inter/Constant.h"
 
+
 Parser::Parser(Lexer* l) {
+
     lex = l;
     move();
 }
@@ -76,7 +78,7 @@ Type* Parser::dims(Type* p) {
 }
 
 Stmt* Parser::stmts() {
-    if ( look->tag == '}' ) return Stmt_Null;
+    if ( look->tag == '}' ) return (Stmt*)Stmt::Null;
     else return new Seq(stmt(), stmts());
 }
 
@@ -88,7 +90,7 @@ Stmt* Parser::stmt() {
 
             case ';': {
                 move();
-                return Stmt_Null;
+                return (Stmt*)Stmt::Null;
 
                 break;
 
@@ -110,15 +112,15 @@ Stmt* Parser::stmt() {
 
             case Tag::WHILE: {
                 While *whilenode = new While();
-                savedStmt = Stmt_Enclosing;
-                Stmt_Enclosing = whilenode;
+                savedStmt = (Stmt*)Stmt::Enclosing;
+                Stmt::Enclosing = whilenode;
                 match(Tag::WHILE);
                 match('(');
                 x = _bool();
                 match(')');
                 s1 = stmt();
                 whilenode->init(x, s1);
-                Stmt_Enclosing = savedStmt;  // reset Stmt.Enclosing
+                Stmt::Enclosing = savedStmt;  // reset Stmt.Enclosing
                 return whilenode;
 
                 break;
@@ -127,8 +129,8 @@ Stmt* Parser::stmt() {
 
             case Tag::DO: {
                 Do *donode = new Do();
-                savedStmt = Stmt_Enclosing;
-                Stmt_Enclosing = donode;
+                savedStmt = (Stmt*)Stmt::Enclosing;
+                Stmt::Enclosing = donode;
                 match(Tag::DO);
                 s1 = stmt();
                 match(Tag::WHILE);
@@ -137,7 +139,7 @@ Stmt* Parser::stmt() {
                 match(')');
                 match(';');
                 donode->init(s1, x);
-                Stmt_Enclosing = savedStmt;  // reset Stmt.Enclosing
+                Stmt::Enclosing = savedStmt;  // reset Stmt.Enclosing
                 return donode;
 
                 break;

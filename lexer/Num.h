@@ -12,7 +12,7 @@ class Num : public Token {
 public:
     int value;
     Num(int v);
-    string toString();
+    virtual string toString();
 };
 
 

@@ -18,7 +18,7 @@ public:
 
     Expr* gen();
 
-    string toString();
+    virtual string toString();
 };
 
 

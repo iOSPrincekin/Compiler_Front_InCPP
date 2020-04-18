@@ -13,7 +13,7 @@ public:
     Expr* expr1, *expr2;
     Arith(Token* tok, Expr* x1, Expr *x2);
     virtual Expr* gen();
-    string toString();
+    virtual string toString();
 
 };
 

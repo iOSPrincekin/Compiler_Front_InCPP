@@ -12,7 +12,7 @@ class Not: public Logical {
 public:
     Not(Token* tok, Expr* x2);
     void jumping(int t, int f);
-    string toString();
+    virtual string toString();
 };
 
 

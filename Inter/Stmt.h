@@ -11,14 +11,12 @@
 class Stmt: public Node {
 public:
     Stmt();
-
+    const static Stmt* Null;
+    const static Stmt* Enclosing;
     virtual void gen(int b, int a);  // called with labels begin and after
     int after = 0;           // saves label after
-
-
 };
-static Stmt* Stmt_Null = new Stmt();
-static Stmt* Stmt_Enclosing = Stmt_Null;
+
 
 
 

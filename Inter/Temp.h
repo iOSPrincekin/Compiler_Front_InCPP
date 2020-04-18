@@ -15,7 +15,7 @@ public:
 
     Temp(Type* p);
 
-    string toString();
+    virtual string toString();
 
 
 

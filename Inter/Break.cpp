@@ -6,8 +6,8 @@
 #include "Stmt.h"
 
 Break::Break() {
-    if( Stmt_Enclosing == Stmt_Null ) error("unenclosed break");
-    stmt = Stmt_Enclosing;
+    if( Stmt::Enclosing == Stmt::Null ) error("unenclosed break");
+    stmt = (Stmt*)Stmt::Enclosing;
 }
 
 void Break::gen(int b, int a) {

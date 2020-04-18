@@ -15,7 +15,7 @@ public:
     Unary(Token* tok, Expr* x);
 
     virtual Expr* gen();
-    string toString();
+    virtual string toString();
 };
 
 

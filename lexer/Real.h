@@ -10,7 +10,7 @@ class Real: public Token{
 public:
     Real(float v);
     float value;
-    string toString();
+    virtual string toString();
 };
 
 

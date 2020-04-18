@@ -16,7 +16,7 @@ public:
     Access(Id *a, Expr *i, Type* p);
     virtual Expr* gen();
     void jumping(int t,int f);
-    string toString();
+    virtual string toString();
 
 };
 
