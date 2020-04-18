@@ -12,9 +12,7 @@ public:
     Token(int t);
     int tag;
     virtual string toString();
-    friend bool operator<(const Token& l, const Token& r){
-        return l.tag < r.tag;
-    }
+
 };
 
 

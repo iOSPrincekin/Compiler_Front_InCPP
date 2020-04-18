@@ -15,7 +15,7 @@ using namespace std;
 class Hashtable {
 private:
   //  int table_size;
-    using Key = boost::variant<Word,Token, std::string>;
+    using Key = boost::variant<Word*,Token*, std::string>;
     map<Key,void *> hashtable;
 public:
    Hashtable();

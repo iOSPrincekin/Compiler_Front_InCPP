@@ -56,7 +56,7 @@ void Parser::decls() {
     while( look->tag == Tag::BASIC ) {   // D -> type ID ;
         Type *p = type(); Token *tok = look; match(Tag::ID); match(';');
         Id *id =  new Id(static_cast<Word *>(tok), p, used);
-        top->put( *tok, id );
+        top->put( tok, id );
         used = used + p->width;
     }
 }
@@ -170,7 +170,7 @@ Stmt* Parser::stmt() {
 Stmt* Parser::assign() {
     Stmt* stmt;  Token* t = look;
     match(Tag::ID);
-    Id *id = top->get(*t);
+    Id *id = top->get(t);
     if( id == nullptr ) error(t->toString() + " undeclared");
 
     if( look->tag == '=' ) {       // S -> id = E ;
@@ -270,7 +270,7 @@ Expr* Parser::factor() {
             return x;
         case Tag::ID:
             string s = look->toString();
-            Id *id = top->get(*look);
+            Id *id = top->get(look);
             if( id == nullptr ) error(look->toString() + " undeclared");
             move();
             if( look->tag != '[' ) return id;
