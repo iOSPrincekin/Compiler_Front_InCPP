@@ -264,9 +264,9 @@ Expr* Parser::factor() {
         case Tag::REAL:
             x = new Constant(look, Type::Float);  move(); return x;
         case Tag::TRUE:
-            x = Constant_True;                   move(); return x;
+            x = Constant::True;                   move(); return x;
         case Tag::FALSE:
-            x = Constant_False;                  move(); return x;
+            x = Constant::False;                  move(); return x;
         default:
             error("syntax error");
             return x;

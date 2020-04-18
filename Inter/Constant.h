@@ -12,13 +12,13 @@ class Constant: public Expr {
 public:
     Constant(Token* tok, Type* p);
     Constant(int i);
-
+    static Constant
+            *const True,
+            *const False;
     void jumping(int t, int f);
 
 };
 
- static  Constant
-        *Constant_True  = new Constant(Word::_True,Type::Bool),
-         *Constant_False = new Constant(Word::_False,Type::Bool);
+
 
 #endif //FRONT_CONSTANT_H
