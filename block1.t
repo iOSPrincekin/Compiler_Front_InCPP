@@ -1,14 +1,33 @@
 {
-	int a; int b; a = 0; b = 0;
-	{
-		int b; b = 1;
-		{
-			int a; a = 2;
-		}
-		{
-			int b; b = 3;
-		}
-		a = a + 1; b = b + 1;
-	}
-	a = a + 1; b = b + 1;
+        int x; int y; int a; int b;
+
+	if( true ) a = 0;
+
+	if( false ) x = 0;
+
+	if ( a < b ) a = b;
+
+	if ( x <= y ) x = y;
+
+	if ( a == b ) a = b;
+
+	if ( x != y ) x = y;
+
+	if ( a >= b ) b = a;
+
+	if ( x > y ) y = x;
+
+	if ( a == b ) ;
+
+        if( x < 100 || x > 200 ) x = 0;
+
+        if( a < 100 && a > 200 ) b = 0;
+
+        if( x < 100 || (x > 200 && x != y) ) x = 0;
+
+        if( a < 100 || (a > 200 && a != 150) || a != 0 ) a = 0;
+
+        if( x > 200 && x != b || x < 100 ) x = 0;
+
+        if( a < 100 || a > 200 && a != b ) a = 0;
 }

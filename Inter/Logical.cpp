@@ -6,10 +6,8 @@
 #include "Temp.h"
 
 Logical::Logical(Token *tok, Expr *x1, Expr *x2):Expr(tok, nullptr) {
-    expr1 = x1;
+    expr1 = x2;
     expr2 = x2;
-    type = check(expr1->type,expr2->type);
-    if (type == nullptr) error("type error");
 }
 
 Type* Logical::check(Type* p1, Type* p2) {

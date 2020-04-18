@@ -14,7 +14,7 @@ class SetElem: public Stmt {
 public:
     Id *array;  Expr* index;  Expr* expr;
     SetElem(Access* x, Expr* y);
-    Type* check(Type* p1, Type* p2);
+    virtual Type* check(Type* p1, Type* p2);
     virtual void gen(int b, int a);
 };
 

@@ -14,7 +14,7 @@ public:
 
     Logical(Token* tok,Expr* x1,Expr* x2);
 
-    Type* check(Type* p1,Type* p2);
+    virtual Type* check(Type* p1,Type* p2);
 
     Expr* gen();
 

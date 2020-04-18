@@ -6,7 +6,8 @@
 #include "../symbols/Array.h"
 
 Rel::Rel(Token *tok, Expr *x1, Expr *x2):Logical(tok,x1,x2) {
-
+    type = check(expr1->type,expr2->type);
+    if (type == nullptr) error("type error");
 }
 Type* Rel::check(Type* p1, Type* p2) {
     if(Array * t1 = dynamic_cast<Array*>(p1))
