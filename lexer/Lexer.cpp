@@ -102,7 +102,7 @@ Token* Lexer::scan() {
             v = 10*v + peek - '0'; readch();
 
         }while (isdigit(peek));
-        if (peek != '0') return new Num(v);
+        if (peek != '.') return new Num(v);
         float x = v; float d = 10;
         for(;;)
         {

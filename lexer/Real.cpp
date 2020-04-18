@@ -3,7 +3,9 @@
 //
 
 #include "Real.h"
-Real::Real(float v):Token(v){
+#include "Tag.h"
+
+Real::Real(float v):Token(Tag::REAL){
     value = v;
 }
 
