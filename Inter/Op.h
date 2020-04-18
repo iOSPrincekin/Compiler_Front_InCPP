@@ -12,7 +12,7 @@ class Op: public Expr {
 public:
 
     Op(Token *tok, Type* p);
-    Expr* reduce() ;
+    virtual Expr* reduce() ;
 
 };
 

@@ -1,33 +1,9 @@
 {
-        int x; int y; int a; int b;
-
-	if( true ) a = 0;
-
-	if( false ) x = 0;
-
-	if ( a < b ) a = b;
-
-	if ( x <= y ) x = y;
-
-	if ( a == b ) a = b;
-
-	if ( x != y ) x = y;
-
-	if ( a >= b ) b = a;
-
-	if ( x > y ) y = x;
-
-	if ( a == b ) ;
-
-        if( x < 100 || x > 200 ) x = 0;
-
-        if( a < 100 && a > 200 ) b = 0;
-
-        if( x < 100 || (x > 200 && x != y) ) x = 0;
-
-        if( a < 100 || (a > 200 && a != 150) || a != 0 ) a = 0;
-
-        if( x > 200 && x != b || x < 100 ) x = 0;
-
-        if( a < 100 || a > 200 && a != b ) a = 0;
+	int i; float prod; float [20] a; float [20] b;
+	prod = 0;
+	i = 1;
+	do {
+		prod = prod + a[i]*b[i];
+		i = i+1;
+	} while (i <= 20);
 }

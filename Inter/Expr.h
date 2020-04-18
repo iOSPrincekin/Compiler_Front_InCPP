@@ -19,7 +19,7 @@ public:
 
     virtual Expr* gen();
 
-    Expr* reduce();
+    virtual Expr* reduce();
 
     virtual void jumping( int t, int f);
     void emitjumps(string test, int t, int f);
