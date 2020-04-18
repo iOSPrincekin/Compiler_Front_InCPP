@@ -3,8 +3,8 @@
 //
 
 #include "Stmt.h"
-const Stmt* Stmt::Null = new Stmt();
-const Stmt* Stmt::Enclosing = Stmt::Null;
+Stmt*const Stmt::Null = new Stmt();
+Stmt* Stmt::Enclosing = Stmt::Null;
 Stmt::Stmt() {
 
 }
