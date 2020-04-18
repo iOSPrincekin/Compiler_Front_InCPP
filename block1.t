@@ -1,17 +1,33 @@
 {
-	int i; int j; float[10][10] a;
-	i = 0;
-	while(true) {
-		j = 0;
-		while(true) {
-			a[i][j] = 0.0;
-			if( j >= 10 ) break;
-		}
-		if( i >= 10 ) break;
-	}
-	i = 0;
-	while(true) {
-		a[i][i] = 1.0;
-		if( i >= 10 ) break;
-	}
+        int x; int y; int a; int b;
+
+	if( true ) a = 0;
+
+	if( false ) x = 0;
+
+	if ( a < b ) a = b;
+
+	if ( x <= y ) x = y;
+
+	if ( a == b ) a = b;
+
+	if ( x != y ) x = y;
+
+	if ( a >= b ) b = a;
+
+	if ( x > y ) y = x;
+
+	if ( a == b ) ;
+
+        if( x < 100 || x > 200 ) x = 0;
+
+        if( a < 100 && a > 200 ) b = 0;
+
+        if( x < 100 || (x > 200 && x != y) ) x = 0;
+
+        if( a < 100 || (a > 200 && a != 150) || a != 0 ) a = 0;
+
+        if( x > 200 && x != b || x < 100 ) x = 0;
+
+        if( a < 100 || a > 200 && a != b ) a = 0;
 }

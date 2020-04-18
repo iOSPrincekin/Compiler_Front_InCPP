@@ -23,6 +23,6 @@ Type* Rel::check(Type* p1, Type* p2) {
 void Rel::jumping(int t, int f) {
     Expr* a = expr1->reduce();
     Expr* b = expr2->reduce();
-    string test = a->toString() + " " + op->toString() + " " + b->toString() + "\n";
+    string test = a->toString() + " " + op->toString() + " " + b->toString() + " ";
     emitjumps(test, t, f);
 }
