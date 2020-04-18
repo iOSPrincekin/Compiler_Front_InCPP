@@ -9,7 +9,7 @@ Constant::Constant(Token *tok, Type* p):Expr(tok,p) {
 
 }
 
-Constant::Constant(int i) :Expr(new Num(i),(Type*)Type::Int){
+Constant::Constant(int i) :Expr(new Num(i),Type::Int){
 
 }
 

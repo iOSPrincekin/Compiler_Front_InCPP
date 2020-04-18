@@ -20,7 +20,7 @@ bool Type::numeric(Type* p) {
 
 Type* Type::max(Type* p1, Type* p2) {
     if ( ! numeric(p1) || ! numeric(p2) ) return nullptr;
-    else if ( p1 == Type::Float || p2 == Type::Float ) return (Type*)Type::Float;
-    else if ( p1 == Type::Int  || p2 == Type::Int   ) return (Type*)Type::Float;
-    else return (Type*)Type::Char;
+    else if ( p1 == Type::Float || p2 == Type::Float ) return Type::Float;
+    else if ( p1 == Type::Int  || p2 == Type::Int   ) return Type::Float;
+    else return Type::Char;
 }

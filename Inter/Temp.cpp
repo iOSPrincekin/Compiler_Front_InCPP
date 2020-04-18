@@ -4,7 +4,7 @@
 
 #include "Temp.h"
 
-Temp::Temp(Type* p):Expr((Token*)&Word_temp,p) {
+Temp::Temp(Type* p):Expr(Word::_temp,p) {
      number = ++Temp_count;
 }
 

@@ -22,10 +22,10 @@ void Lexer::setup() {
     reserve(  new Word("do",    Tag::DO)    );
     reserve(  new Word("break", Tag::BREAK) );
 
-    reserve( (Word*)Word_True );  reserve( (Word*)Word_False );
+    reserve( Word::_True );  reserve( Word::_False );
 
-    reserve( (Word*)Type::Int  );  reserve( (Word*)Type::Char  );
-    reserve( (Word*)Type::Bool );  reserve( (Word*)Type::Float );
+    reserve( Type::Int  );  reserve( Type::Char  );
+    reserve( Type::Bool );  reserve( Type::Float );
 
 
 }
@@ -82,17 +82,17 @@ Token* Lexer::scan() {
     switch (peek)
     {
         case '&':
-            if (readch('&')) return (Token*)&Word_and; else return new Token('&');
+            if (readch('&')) return Word::_and; else return new Token('&');
         case '|':
-            if (readch('|')) return (Token*)&Word_or;  else return new Token('|');
+            if (readch('|')) return Word::_or;  else return new Token('|');
         case '=':
-            if (readch('=')) return (Token*)&Word_eq; else return new Token('=');
+            if (readch('=')) return Word::_eq; else return new Token('=');
         case '!':
-            if (readch('=')) return (Token*)&Word_ne; else return new Token('!');
+            if (readch('=')) return Word::_ne; else return new Token('!');
         case '<':
-            if (readch('=')) return (Token*)&Word_le; else return new Token('<');
+            if (readch('=')) return Word::_le; else return new Token('<');
         case '>':
-            if (readch('=')) return (Token*)&Word_ge; else return new Token('>');
+            if (readch('=')) return Word::_ge; else return new Token('>');
     }
 
     if (isdigit(peek))

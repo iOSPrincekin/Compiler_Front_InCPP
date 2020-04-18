@@ -243,7 +243,7 @@ Expr* Parser::term() {
 
 Expr* Parser::unary() {
     if( look->tag == '-' ) {
-        move();  return new Unary((Token *)Word_minus, unary());
+        move();  return new Unary(Word::_minus, unary());
     }
     else if( look->tag == '!' ) {
         Token *tok = look;  move();  return new Not(tok, unary());
@@ -260,9 +260,9 @@ Expr* Parser::factor() {
             return x;
 
         case Tag::NUM:
-            x = new Constant(look, (Type*)Type::Int);    move(); return x;
+            x = new Constant(look, Type::Int);    move(); return x;
         case Tag::REAL:
-            x = new Constant(look, (Type*)Type::Float);  move(); return x;
+            x = new Constant(look, Type::Float);  move(); return x;
         case Tag::TRUE:
             x = Constant_True;                   move(); return x;
         case Tag::FALSE:

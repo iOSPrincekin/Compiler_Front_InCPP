@@ -6,7 +6,7 @@
 
 Unary::Unary(Token* tok, Expr* x):Op(tok, nullptr) {
     expr = x;
-    type = Type::max((Type*)Type::Int,expr->type);
+    type = Type::max(Type::Int,expr->type);
     if (type == nullptr ) error("type error");
 }
 

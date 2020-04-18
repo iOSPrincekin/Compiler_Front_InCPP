@@ -13,7 +13,7 @@ Logical::Logical(Token *tok, Expr *x1, Expr *x2):Expr(tok, nullptr) {
 }
 
 Type* Logical::check(Type* p1, Type* p2) {
-    if (p1 == Type::Bool && p2  == Type::Bool) return (Type*)Type::Bool;
+    if (p1 == Type::Bool && p2  == Type::Bool) return Type::Bool;
     else return nullptr;
 }
 
