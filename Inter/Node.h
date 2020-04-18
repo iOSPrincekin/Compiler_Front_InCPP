@@ -9,12 +9,12 @@
 using namespace std;
 class Node {
 public:
-  int lexline = 0;
+    int lexline = 0;
     Node();
 
     void error(string s);
+    static int labels;
 
-     int labels;
 
     int newlabel();
     void emitlabel(int i);

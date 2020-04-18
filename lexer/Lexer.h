@@ -12,7 +12,7 @@
 
 class Lexer {
 public:
-    int line;
+    static int line;
     Lexer();
     Lexer(string file_path);
     char peek = ' ';
