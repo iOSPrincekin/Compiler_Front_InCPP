@@ -20,10 +20,10 @@ void Expr::emitjumps(string test, int t, int f) {
         emit("if" + test + " goto L" + std::to_string(t));
         emit("goto L"+ std::to_string(f));
     }
-    else if(t != 0)emit("if "+test+ "goto L" +std::to_string(t));
-    else if(f != 0)emit("iffalse " + test + "goto L" +std::to_string(f));
+    else if(t != 0)emit("if "+test+ " goto L" +std::to_string(t));
+    else if(f != 0)emit("iffalse " + test + " goto L" +std::to_string(f));
     else;   /* nothing since both t and f fall through */
 
 }
 
-string Expr::toString() { return op->toString() ;}
+string Expr::toString() { return op->toString();}

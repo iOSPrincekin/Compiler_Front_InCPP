@@ -1,33 +1,18 @@
 {
-        int x; int y; int a; int b;
+        bool b; bool r; bool[11] a; int i; int x; int y;
 
-	if( true ) a = 0;
+	r = b;
 
-	if( false ) x = 0;
+	r = a[i];
 
-	if ( a < b ) a = b;
+	a[i] = b;
 
-	if ( x <= y ) x = y;
+	a[i] = true;
 
-	if ( a == b ) a = b;
+	a[i] = false;
 
-	if ( x != y ) x = y;
+	if( b ) x = y;
 
-	if ( a >= b ) b = a;
+	if( a[i] ) x = y;
 
-	if ( x > y ) y = x;
-
-	if ( a == b ) ;
-
-        if( x < 100 || x > 200 ) x = 0;
-
-        if( a < 100 && a > 200 ) b = 0;
-
-        if( x < 100 || (x > 200 && x != y) ) x = 0;
-
-        if( a < 100 || (a > 200 && a != 150) || a != 0 ) a = 0;
-
-        if( x > 200 && x != b || x < 100 ) x = 0;
-
-        if( a < 100 || a > 200 && a != b ) a = 0;
 }
