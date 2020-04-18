@@ -260,9 +260,9 @@ Expr* Parser::factor() {
             return x;
 
         case Tag::NUM:
-            x = new Constant(look, (Type*)Type_Int);    move(); return x;
+            x = new Constant(look, (Type*)Type::Int);    move(); return x;
         case Tag::REAL:
-            x = new Constant(look, (Type*)Type_Float);  move(); return x;
+            x = new Constant(look, (Type*)Type::Float);  move(); return x;
         case Tag::TRUE:
             x = Constant_True;                   move(); return x;
         case Tag::FALSE:

@@ -12,7 +12,7 @@ Do::Do() {
 void Do::init(Stmt* s, Expr* x)
 {
     expr = x; stmt = s;
-    if( expr->type != Type_Bool ) expr->error("boolean required in do");
+    if( expr->type != Type::Bool ) expr->error("boolean required in do");
 }
 
 void Do::gen(int b, int a) {

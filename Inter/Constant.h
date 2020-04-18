@@ -18,7 +18,7 @@ public:
 };
 
  static  Constant
-        *Constant_True  = new Constant((Token*)&Word_True,  (Type*)Type_Bool),
-         *Constant_False = new Constant((Token*)&Word_False, (Type*)Type_Bool);
+        *Constant_True  = new Constant((Token*)&Word_True,  (Type*)Type::Bool),
+         *Constant_False = new Constant((Token*)&Word_False, (Type*)Type::Bool);
 
 #endif //FRONT_CONSTANT_H

@@ -10,7 +10,7 @@ While::While() {
 
 void While::init(Expr *x, Stmt *s) {
     expr = x;  stmt = s;
-    if( expr->type != Type_Bool ) expr->error("boolean required in while");
+    if( expr->type != Type::Bool ) expr->error("boolean required in while");
 }
 
 void While::gen(int b, int a) {

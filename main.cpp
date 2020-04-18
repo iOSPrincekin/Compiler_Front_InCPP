@@ -44,7 +44,7 @@ int main(int argc,char** argv) {
     cout << newVal3->toString() << endl;
 
 
-    Word w1 = Type_Int;
+    Word w1 = Type::Int;
     reserve(w1);
     Word* w2 = static_cast<Word *>(t.get(w1.lexeme));
     cout << w2->toString() << endl;

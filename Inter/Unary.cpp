@@ -6,8 +6,8 @@
 
 Unary::Unary(Token* tok, Expr* x):Op(tok, nullptr) {
     expr = x;
-    type = Type::max((Type*)Type_Int,expr->type);
-    if (type == Type_NULL ) error("type error");
+    type = Type::max((Type*)Type::Int,expr->type);
+    if (type == nullptr ) error("type error");
 }
 
 Expr* Unary::gen() {

@@ -9,11 +9,11 @@ Logical::Logical(Token *tok, Expr *x1, Expr *x2):Expr(tok, nullptr) {
     expr1 = x1;
     expr2 = x2;
     type = check(expr1->type,expr2->type);
-    if (type == Type_NULL) error("type error");
+    if (type == nullptr) error("type error");
 }
 
 Type* Logical::check(Type* p1, Type* p2) {
-    if (p1 == Type_Bool && p2  == Type_Bool) return (Type*)Type_Bool;
+    if (p1 == Type::Bool && p2  == Type::Bool) return (Type*)Type::Bool;
     else return nullptr;
 }
 

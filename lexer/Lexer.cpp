@@ -24,8 +24,8 @@ void Lexer::setup() {
 
     reserve( (Word*)Word_True );  reserve( (Word*)Word_False );
 
-    reserve( (Word*)Type_Int  );  reserve( (Word*)Type_Char  );
-    reserve( (Word*)Type_Bool );  reserve( (Word*)Type_Float );
+    reserve( (Word*)Type::Int  );  reserve( (Word*)Type::Char  );
+    reserve( (Word*)Type::Bool );  reserve( (Word*)Type::Float );
 
 
 }

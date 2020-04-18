@@ -15,7 +15,7 @@ Type* Rel::check(Type* p1, Type* p2) {
             return nullptr;
         }
     }
-    if( p1 == p2 ) return (Type*)Type_Bool;
+    if( p1 == p2 ) return (Type*)Type::Bool;
     return nullptr;
 }
 
