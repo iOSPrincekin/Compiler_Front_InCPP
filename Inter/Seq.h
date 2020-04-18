@@ -12,7 +12,7 @@ class Seq: public Stmt {
     Stmt *stmt1; Stmt* stmt2;
 public:
     Seq(Stmt *s1, Stmt *s2);
-    void gen(int b, int a);
+    virtual void gen(int b, int a);
 };
 
 

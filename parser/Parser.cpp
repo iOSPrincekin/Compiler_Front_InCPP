@@ -30,7 +30,7 @@ void Parser::move() {
 }
 
 void Parser::error(string s) {
-    throw std::domain_error("near line "+std::to_string(lex->line)+": "+s);
+    throw std::domain_error("near line "+std::to_string(lex->line)+": "+s+"\n");
 }
 
 void Parser::match(int t) {

@@ -14,7 +14,7 @@ public:
     Expr* expr; Stmt* stmt;
     While();
     void init(Expr* x, Stmt* s);
-    void gen(int b, int a);
+    virtual void gen(int b, int a);
 
 };
 

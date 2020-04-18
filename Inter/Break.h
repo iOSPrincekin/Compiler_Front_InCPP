@@ -13,7 +13,7 @@ private:
     Stmt* stmt;
 public:
     Break();
-    void gen(int b, int a);
+    virtual void gen(int b, int a);
 };
 
 

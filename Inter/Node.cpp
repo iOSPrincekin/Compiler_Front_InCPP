@@ -17,5 +17,5 @@ void Node::error(string s) {
 
 int Node::newlabel() { return ++labels;}
 
-void Node::emitlabel(int i) {cout << "L" << i << ":";}
-void Node::emit(string s) {cout << "\t" + s;}
+void Node::emitlabel(int i) {cout << "L" << i << ":" << endl;}
+void Node::emit(string s) {cout << "\t" + s << endl;}

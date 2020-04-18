@@ -12,7 +12,7 @@ class Arith: public Op {
 public:
     Expr* expr1, *expr2;
     Arith(Token* tok, Expr* x1, Expr *x2);
-    Expr* gen();
+    virtual Expr* gen();
     string toString();
 
 };

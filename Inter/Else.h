@@ -13,7 +13,7 @@ class Else : public Stmt{
 public:
     Expr *expr; Stmt *stmt1, *stmt2;
     Else(Expr* x, Stmt* s1, Stmt* s2);
-    void gen(int b, int a);
+    virtual void gen(int b, int a);
 };
 
 

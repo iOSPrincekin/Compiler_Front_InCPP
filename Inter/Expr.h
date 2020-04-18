@@ -17,7 +17,7 @@ public:
 
     Expr(Token *tok, Type* p);
 
-    Expr* gen();
+    virtual Expr* gen();
 
     Expr* reduce();
 

@@ -13,5 +13,5 @@ void Not::jumping(int t, int f) {
 }
 
 string Not::toString() {
-    return op->toString()+" "+expr2->toString();
+    return op->toString()+" "+expr2->toString()+"\n";
 }

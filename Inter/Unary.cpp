@@ -15,5 +15,5 @@ Expr* Unary::gen() {
 }
 
 string Unary::toString() {
-    return op->toString()+" "+expr->toString();
+    return op->toString()+" "+expr->toString() + "\n";
 }

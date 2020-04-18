@@ -14,7 +14,7 @@ public:
     Id *array;
     Expr *index;
     Access(Id *a, Expr *i, Type* p);
-    Expr gen();
+    virtual Expr* gen();
     void jumping(int t,int f);
     string toString();
 
